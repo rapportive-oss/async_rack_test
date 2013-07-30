@@ -12,12 +12,11 @@ Gem::Specification.new do |s|
   s.summary     = "async_rack_test-#{AsyncRackTest::Version::STRING}"
   s.description = "Extends rack-test to make working with EventMachine easier."
 
-  s.files            = `git ls-files`.split("\n")
-  s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
-  s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files            = ["lib/async_rack_test.rb", "lib/async_rack_test/resync_app.rb", "lib/async_rack_test/version.rb"]
+  s.test_files       = ["spec/async_rack_test_spec.rb", "spec/spec_helper.rb"]
   s.extra_rdoc_files = [ 'README.rdoc', 'CHANGELOG.rdoc']
   s.rdoc_options     = ["--charset=UTF-8"]
-  s.require_path     = "lib"
+  s.require_paths    = ["lib"]
 
-  # TODO: Add rack-test as a dependency
+  s.add_dependency(%q<rack-test>, ['>= 0'])
 end
